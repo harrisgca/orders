@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :widgets
+
   resources :orders
 
   resources :customers
