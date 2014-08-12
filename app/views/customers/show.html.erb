@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <%= @customer.name.upcase %><br>
+  <%= @customer.address1.upcase %><br>
+  <% if @customer.address2 != ""%>
+    <%= @customer.address2.upcase %><br>
+  <% end %>
+  <%= @customer.city.upcase %><br>
+  <%= @customer.state.upcase %> <br>
+  <%= @customer.zip %> <br>
+</p>
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
