@@ -1,28 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+...In progress, but here's an excerpt from a blog post...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+http://ghdev.net/2014/08/10/order-management-a-new-project-im-working-on/
+
+Before I got hired I was using Rails 4 exclusively, but on the job we were using Rails 3. I thought it would be a good idea to keep up on the latest and greatest so I decided to start a new Rails 4 project.
+
+I started a mock order management system (link to github) and I’m trying to do things the “right way” in the Ruby/Rails sense. By “right way” I mean TDD and planning things like a PROFESSIONAL DEVELOPER and not like a PROGRAMMER. It’s definitely a different way of approaching a problem…and I LIKE IT.
+
+Planning things out with diagrams and using TDD “feels” slower for now because I’m not used to doing it. But what I’m gaining is the ability to step away from a project for a break, then come back and being able to easily pick up where I left off because I’ve planned out the steps.
