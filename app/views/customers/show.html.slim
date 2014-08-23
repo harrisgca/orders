@@ -1,0 +1,18 @@
+p id= 'notice'
+  =notice
+
+h2 = @customer.name
+hr
+
+h3 Address
+=@customer.address1
+-if @customer.address2
+  br
+  =@customer.address2
+br
+="#{@customer.city}, #{@customer.state}, #{@customer.zip}"
+br
+br
+br
+=link_to 'Edit | ', edit_customer_path(@customer)
+=link_to 'Back', customers_path

@@ -1,0 +1,11 @@
+p#notice = notice
+
+h2 = "Order ID: #{@order.id}"
+
+h3 = "Quantity: FIXME"
+
+h3 = "Customer: #{@order.customer.name}"
+
+= link_to 'Edit', edit_order_path(@order)
+'|
+= link_to 'Back', orders_path

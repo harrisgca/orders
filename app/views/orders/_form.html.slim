@@ -1,0 +1,24 @@
+= form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+
+
+h2 = "Order ID: #{@order.id}"
+h3 = "Customer: #{@order.customer.name}"
+
+  .actions 
+    p
+      =f.label(:quantity, "Quantity  ")
+      br
+      =f.text_field(:quantity)
+
+    = f.submit 'Save'
+
+
+// NEED TO DIAGRAM THE ORDER CREATION PROCESS.
+// NEED A F.COLLECTION_SELECT WITH ALL CUSTOMER NAMES.
+// http://stackoverflow.com/questions/14113057/how-to-have-a-drop-down-select-field-in-a-rails-form

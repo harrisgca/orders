@@ -1,0 +1,15 @@
+h1 Listing All Customers
+br
+
+table
+  - @customers.each do |customer|
+    tr
+      td = customer.name
+      td = link_to "Show", customer
+      td = link_to "Edit", edit_customer_path(customer)
+      td = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
+
+br
+
+= link_to 'Create New Customer', new_customer_path
+
