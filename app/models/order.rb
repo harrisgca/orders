@@ -2,5 +2,5 @@ class Order < ActiveRecord::Base
   belongs_to :customer
   has_many :widgets
 
-  validates :customer_id, presence: true
+  validates :customer_id, :quantity, presence: true
 end

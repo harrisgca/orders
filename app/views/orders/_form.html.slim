@@ -6,11 +6,13 @@
         - @order.errors.full_messages.each do |message|
           li = message
 
-
-h2 = "Order ID: #{@order.id}"
-h3 = "Customer: #{@order.customer.name}"
-
   .actions 
+
+    p
+      =f.label(:customer_id)
+      br
+      =collection_select(:order, :customer_id, Customer.all, :id, :name)
+
     p
       =f.label(:quantity, "Quantity  ")
       br

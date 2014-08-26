@@ -1,11 +1,10 @@
-p#notice = notice
+h2 = "Customer Order: #{@order.customer.name}"
+h3 = "Order no: #{@order.id}"
 
-h2 = "Order ID: #{@order.id}"
+h4 Widgets Assigned To This Order (#{@order.widgets.count})
+- @order.widgets.each do |widget|
+  ul
+    li = widget.serial_number
 
-h3 = "Quantity: FIXME"
 
-h3 = "Customer: #{@order.customer.name}"
-
-= link_to 'Edit', edit_order_path(@order)
-'|
-= link_to 'Back', orders_path
+= link_to 'Back to  Orders', orders_path
