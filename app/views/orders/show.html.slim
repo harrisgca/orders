@@ -1,5 +1,6 @@
 h2 = "Customer Order: #{@order.customer.name}"
 h3 = "Order no: #{@order.id}"
+h3 = "Status: #{@order.status}"
 
 h4 Widgets Assigned To This Order (#{@order.widgets.count})
 - @order.widgets.each do |widget|
