@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   has_many :widgets
 
   validates :customer_id, :quantity, presence: true
+  before_create :unique_order_number
 
   scope :open_orders, -> { where(status: 'open')}
   scope :already_assigned, -> { where(status: 'awaiting_shipment')}
@@ -33,4 +34,12 @@ class Order < ActiveRecord::Base
   def self.statuses 
     self.aasm.states.map(&:name)
   end
+
+  private
+    def unique_order_number
+      #First 3 letters of customer name + order qty + year + random number
+      customer = self.customer.name
+      abbrev   = customer.split.join[0..2].upcase
+      self.order_number =  abbrev + Time.now.year.to_s + (rand(1..10000).to_s.rjust(8,'0'))
+    end
 end

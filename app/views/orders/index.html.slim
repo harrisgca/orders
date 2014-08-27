@@ -1,21 +1,61 @@
-h1 Listing orders
-
-table
-  thead
-    tr
-      th Order ID
-      th Qty
-      th Customer
-
-
-  tbody
-    - @orders.each do |order|
+h2 Open Orders (#{@open_orders.count})
+-if @open_orders.count > 0
+  table
+    th
       tr
-        td = link_to order.id, order
-        td = order.quantity
-        td = order.customer.name
+        td ORDER NUM
+        td QTY
+        td CUSTOMER
+    -@open_orders.each do |order|
+      tr 
+        td = "#{order.order_number}"
+        td = "#{order.quantity}"
+        td = "#{order.customer.name}"
 
-br
+h2 Awaiting Shipment (#{@already_assigned.count})
+-if @already_assigned.count > 0
+  table
+    th
+      tr
+        td ORDER NUM
+        td QTY
+        td CUSTOMER
+    -@already_assigned.each do |order|
+      tr 
+        td = "#{order.order_number}"
+        td = "#{order.quantity}"
+        td = "#{order.customer.name}"
+
+
+h2 Shipped Orders (#{@already_shipped.count})
+-if @already_shipped.count > 0
+  table
+    th
+      tr
+        td ORDER NUM
+        td QTY
+        td CUSTOMER
+    -@already_shipped.each do |order|
+      tr 
+        td = "#{order.order_number}"
+        td = "#{order.quantity}"
+        td = "#{order.customer.name}"
+
+h2 Delivered Orders (#{@closed_orders.count})
+-if @closed_orders.count > 0
+  table
+    th
+      tr
+        td ORDER NUM
+        td QTY
+        td CUSTOMER
+    -@closed_orders.each do |order|
+      tr 
+        td = "#{order.order_number}"
+        td = "#{order.quantity}"
+        td = "#{order.customer.name}"
+      
+
 
 = link_to 'New Order', new_order_path
 

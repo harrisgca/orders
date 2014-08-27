@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   resources :widgets
-
-  resources :orders
-
   resources :customers
-  root 'customers#index'
+
+  resources :orders do 
+    collection do
+      get 'order-status'
+    end
+  end
+  # get 'order-status' => 'orders#order_status'
+
+
+  root 'orders#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
