@@ -1,0 +1,32 @@
+h1 Assign Widgets to Order #{@order.order_number}
+hr
+h3 Order Information
+
+table
+  thead
+    tr
+      th ORDER NUM
+      th Qty
+      th Customer
+  tbody
+    tr
+      td =@order.order_number
+      td =@order.quantity
+      td =@order.customer.name
+
+br
+br
+
+h3 Widgets To Assign (#{@order.quantity})
+table
+  thead
+    tr
+      th Serial number
+  tbody
+    -@unassigned_widgets.limit(@order.quantity).each do |widget|
+      tr
+        td=widget.serial_number
+
+br
+br
+=link_to 'Assign Widgets', '#'

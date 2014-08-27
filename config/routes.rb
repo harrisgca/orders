@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :customers
 
   resources :orders do 
-    collection do
-      get 'order-status'
+    member do
+      get 'assign'
     end
   end
   # get 'order-status' => 'orders#order_status'

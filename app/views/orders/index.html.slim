@@ -1,30 +1,35 @@
 h2 Open Orders (#{@open_orders.count})
 -if @open_orders.count > 0
   table
-    th
+    thead
       tr
-        td ORDER NUM
-        td QTY
-        td CUSTOMER
-    -@open_orders.limit(3).each do |order|
-      tr 
-        td = "#{order.order_number}"
-        td = "#{order.quantity}"
-        td = "#{order.customer.name}"
+        th ORDER NUM
+        th QTY
+        th CUSTOMER
+        th
+    tbody
+      -@open_orders.each do |order|
+        tr 
+          td = "#{order.order_number}"
+          td = "#{order.quantity}"
+          td = "#{order.customer.name}"
+          td = link_to 'Assign Widgets', assign_order_path(order)
+
 
 h2 Awaiting Shipment (#{@already_assigned.count})
 -if @already_assigned.count > 0
   table
     th
       tr
-        td ORDER NUM
-        td QTY
-        td CUSTOMER
+        th ORDER NUM
+        th QTY
+        th CUSTOMER
     -@already_assigned.each do |order|
       tr 
         td = "#{order.order_number}"
         td = "#{order.quantity}"
         td = "#{order.customer.name}"
+        td = link_to 'View', order_path(order)
 
 
 h2 Shipped Orders (#{@already_shipped.count})
@@ -32,28 +37,31 @@ h2 Shipped Orders (#{@already_shipped.count})
   table
     th
       tr
-        td ORDER NUM
-        td QTY
-        td CUSTOMER
+        th ORDER NUM
+        th QTY
+        th CUSTOMER
     -@already_shipped.each do |order|
       tr 
         td = "#{order.order_number}"
         td = "#{order.quantity}"
         td = "#{order.customer.name}"
+        td = link_to 'View', order_path(order)
 
 h2 Delivered Orders (#{@closed_orders.count})
 -if @closed_orders.count > 0
   table
     th
       tr
-        td ORDER NUM
-        td QTY
-        td CUSTOMER
+        th ORDER NUM
+        th QTY
+        th CUSTOMER
+        th
     -@closed_orders.each do |order|
       tr 
         td = "#{order.order_number}"
         td = "#{order.quantity}"
         td = "#{order.customer.name}"
+        td = link_to 'View', order_path(order)
       
 
 

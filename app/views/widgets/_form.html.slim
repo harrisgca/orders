@@ -6,4 +6,13 @@
         - @widget.errors.full_messages.each do |message|
           li = message
 
-  .actions = f.submit 'Save'
+
+
+  .actions 
+    p
+      =f.label(:serial_number)
+      |&nbsp
+      =f.text_field(:serial_number)
+
+    = f.submit 'Save'
+

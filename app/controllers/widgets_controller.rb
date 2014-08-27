@@ -4,7 +4,10 @@ before_action :set_widget, only: [:show, :edit, :update, :destroy]
 
 # GET /widgets
 def index
-  @widgets = Widget.all
+  @widgets            = Widget.all
+  @widgets_unassigned = Widget.unassigned
+  @widgets_assigned   = Widget.where("order_id IS NOT NULL")
+
 end
 
 # GET /widgets/1
@@ -41,7 +44,6 @@ def update
 end
 
 # DELETE /widgets/1
-# DELETE /widgets/1.json
 def destroy
   @widget.destroy
   redirect_to widgets_url, notice: 'Widget was successfully destroyed.'
@@ -55,7 +57,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def widget_params
-    params.require(:widget).permit(:name, :address1, :city, :state, :zip)
+    params.require(:widget).permit(:serial_number)
   end
 
 end

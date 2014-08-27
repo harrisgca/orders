@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :assign]
 
 
   # GET /orders
   def index
-    @orders = Order.all
+    @orders           = Order.all
     @open_orders      = Order.open_orders
     @already_assigned = Order.already_assigned
     @already_shipped  = Order.already_shipped
@@ -50,11 +50,9 @@ class OrdersController < ApplicationController
     redirect_to orders_url, notice: 'Order was successfully destroyed.'
   end
 
-  def order_status
-    @open_orders      = Order.open_orders
-    @already_assigned = Order.already_assigned
-    @already_shipped  = Order.already_shipped
-    @closed_orders    = Order.closed_orders
+  def assign
+    @unassigned_widgets = Widget.unassigned
+    @assigned_widgets = @order.widgets
   end
 
   private

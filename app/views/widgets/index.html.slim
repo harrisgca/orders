@@ -3,16 +3,32 @@ h1 Listing widgets
 table
   thead
     tr
-      th
-      th
-      th
+      th Serial Number
+      th Order Number
+      th Customer
 
   tbody
-    - @widgets.each do |widget|
+    - @widgets_assigned.each do |widget|
       tr
-        td = link_to 'Show', widget
-        td = link_to 'Edit', edit_widget_path(widget)
-        td = link_to 'Destroy', widget, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td =widget.serial_number
+        td =widget.order.order_number
+        td =widget.customer.name
+        / td = link_to 'Show', widget
+        / td = link_to 'Edit', edit_widget_path(widget)
+        / td = link_to 'Destroy', widget, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+h3 Unassigned Widgets(#{@widgets_unassigned.count})
+table
+  thead
+    tr
+      th Serial Number
+      th
+  tbody
+    - @widgets_unassigned.each do |widget|
+      tr
+        td =widget.serial_number
+        td =link_to 'Edit', edit_widget_path(widget)
 
 br
 
