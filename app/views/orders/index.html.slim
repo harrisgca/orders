@@ -6,7 +6,7 @@ h2 Open Orders (#{@open_orders.count})
         td ORDER NUM
         td QTY
         td CUSTOMER
-    -@open_orders.each do |order|
+    -@open_orders.limit(3).each do |order|
       tr 
         td = "#{order.order_number}"
         td = "#{order.quantity}"

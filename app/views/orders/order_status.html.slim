@@ -1,5 +1,5 @@
 h2 Open Orders (#{@open_orders.count})
--@open_orders.each do |order|
+-@open_orders.limit(1).each do |order|
   li ="#{order.id} #{order.customer.name}"
 
 h2 Awaiting Shipment (#{@already_assigned.count})
