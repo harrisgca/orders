@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :assign]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :assign, :assign_widgets]
 
 
   # GET /orders
@@ -55,6 +55,18 @@ class OrdersController < ApplicationController
     @assigned_widgets = @order.widgets
   end
 
+  def assign_widgets
+    @widgets = Widget.unassigned.limit(@order.quantity)
+    @widgets.each do |widget|
+      widget.order_id = @order.id
+      widget.save!
+    end
+    @order.assign
+    @order.save!
+
+    redirect_to @order
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -63,6 +75,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:customer_id, :quantity, :order_number)
+      params.require(:order).permit(:customer_id, :quantity, :order_number, :status)
     end
 end

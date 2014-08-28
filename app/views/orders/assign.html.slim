@@ -17,7 +17,7 @@ table
 br
 br
 
-h3 Widgets To Assign (#{@order.quantity})
+h3 Widgets To Be Assigned (#{@order.quantity})
 table
   thead
     tr
@@ -29,4 +29,4 @@ table
 
 br
 br
-=link_to 'Assign Widgets', '#'
+=button_to 'Assign Widgets', action: 'assign_widgets'

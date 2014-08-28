@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :orders do 
     member do
       get 'assign'
+      post 'assign_widgets'
     end
   end
   # get 'order-status' => 'orders#order_status'
