@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem "slim-rails"
 gem 'bootstrap-sass', '~> 3.2.0'
+gem "font-awesome-rails"
 gem 'autoprefixer-rails'
 gem 'aasm'
 
