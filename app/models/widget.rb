@@ -4,7 +4,7 @@ class Widget < ActiveRecord::Base
   
   validates :serial_number, presence: true, uniqueness: true
 
-  scope :unassigned, ->{( where order_id: nil)}
-
+  scope :unassigned, -> {( where order_id: nil)}
+  scope :assigned,   -> {(where.not order_id: nil)}
 
 end
