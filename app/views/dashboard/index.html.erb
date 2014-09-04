@@ -110,7 +110,11 @@
                                         <% @customers.each do |customer|%>
                                           <tr>
                                               <td><%= customer.name %></td>
-                                              <td><%= customer.orders.last.created_at.strftime('%m/%d/%Y') %></td>
+                                              <% if customer.orders.count == 0 %>
+                                                <td>No orders</td>
+                                              <% else %>
+                                                <td><%= customer.orders.last.created_at.strftime('%m/%d/%Y') %></td>
+                                              <% end %>
                                               <td><%= customer.widgets.count %></td>
                                           </tr>
                                         <% end %>
