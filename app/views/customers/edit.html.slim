@@ -9,6 +9,5 @@
         =render 'form'
 
         p
-          =link_to "Cancel Edit", @customer
-        p
-          =link_to "Back to Customer Index", customers_path
+          =button_to "Back to Customer Index", customers_path, method: 'get', class: 'btn btn-danger'
+

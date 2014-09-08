@@ -6,7 +6,7 @@
       -@customer.errors.full_messages.each do |message|
         li =message
 
-  div class="actions"
+  .actions
     p
       =f.label(:name, "Name  ")
       br
@@ -32,5 +32,6 @@
       br
       =f.text_field(:zip)
 
+    br
     =f.submit class:"btn btn-primary"
-    div style='padding-bottom: 25px;'
+  

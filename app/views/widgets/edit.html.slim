@@ -1,8 +1,10 @@
-h1 Editing widget
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        h1 class="page-header" Editing Widget
 
-== render 'form'
+        == render 'form'
 
-= link_to 'Show', @widget
-'|
-= link_to 'Back', widgets_path
-
+        br
+        =button_to 'Back', widgets_path, method: 'get', class:'btn btn-danger'

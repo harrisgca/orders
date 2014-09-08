@@ -1,6 +1,11 @@
-h1 Scan new widget
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        h1 class="page-header" Create new widget
+        = render 'form'
 
-== render 'form'
 
-p
-= link_to 'Back', widgets_path
+    p
+    = button_to 'Back', widgets_path, method: 'get', class: 'btn btn-danger'
+    div style='padding-bottom: 25px;'

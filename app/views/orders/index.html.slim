@@ -1,74 +1,79 @@
-h2 Open Orders (#{@open_orders.count})
--if @open_orders.count > 0
-  table
-    thead
-      tr
-        th ORDER NUM
-        th QTY
-        th CUSTOMER
-        th
-    tbody
-      -@open_orders.each do |order|
-        tr 
-          td = "#{order.order_number}"
-          td = "#{order.quantity}"
-          td = "#{order.customer.name}"
-          td = link_to 'Assign Widgets', assign_order_path(order)
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        =button_to new_order_path, method:'get', class:'btn btn-primary'
+          i class='fa fa-shopping-cart' &nbsp Create New Order
+          br
+        h2 Open Orders (#{@open_orders.count})
+        -if @open_orders.count > 0
+          table class='table table-striped table-hover table-responsive'
+            thead
+              tr
+                th ORDER NUM
+                th QTY
+                th CUSTOMER
+                th
+            tbody
+              -@open_orders.each do |order|
+                tr 
+                  td = "#{order.order_number}"
+                  td = "#{order.quantity}"
+                  td = "#{order.customer.name}"
+                  td = button_to "Assign Widgets", assign_order_path(order), method:'get', class:'btn btn-success btn-sm'
+                  
 
+        h2 Awaiting Shipment (#{@already_assigned.count})
+        -if @already_assigned.count > 0
+          table class='table table-striped table-hover table-responsive'
+            thead
+              tr
+                th ORDER NUM
+                th QTY
+                th CUSTOMER
+            -@already_assigned.each do |order|
+              tr 
+                td = "#{order.order_number}"
+                td = "#{order.quantity}"
+                td = "#{order.customer.name}"
+                td = button_to "View", order_path(order), method:'get', class:'btn btn-warning btn-sm'
+                
 
-h2 Awaiting Shipment (#{@already_assigned.count})
--if @already_assigned.count > 0
-  table
-    th
-      tr
-        th ORDER NUM
-        th QTY
-        th CUSTOMER
-    -@already_assigned.each do |order|
-      tr 
-        td = "#{order.order_number}"
-        td = "#{order.quantity}"
-        td = "#{order.customer.name}"
-        td = link_to 'View', order_path(order)
+        h2 Shipped Orders (#{@already_shipped.count})
+        -if @already_shipped.count > 0
+          table class='table table-striped table-hover table-responsive'
+            thead
+              tr
+                th ORDER NUM
+                th QTY
+                th CUSTOMER
+            -@already_shipped.each do |order|
+              tr 
+                td = "#{order.order_number}"
+                td = "#{order.quantity}"
+                td = "#{order.customer.name}"
+                td = button_to "View", order_path(order), method:'get', class:'btn btn-warning btn-sm'
+                
 
-
-h2 Shipped Orders (#{@already_shipped.count})
--if @already_shipped.count > 0
-  table
-    th
-      tr
-        th ORDER NUM
-        th QTY
-        th CUSTOMER
-    -@already_shipped.each do |order|
-      tr 
-        td = "#{order.order_number}"
-        td = "#{order.quantity}"
-        td = "#{order.customer.name}"
-        td = link_to 'View', order_path(order)
-
-h2 Delivered Orders (#{@closed_orders.count})
--if @closed_orders.count > 0
-  table
-    th
-      tr
-        th ORDER NUM
-        th QTY
-        th CUSTOMER
-        th
-    -@closed_orders.each do |order|
-      tr 
-        td = "#{order.order_number}"
-        td = "#{order.quantity}"
-        td = "#{order.customer.name}"
-        td = link_to 'View', order_path(order)
-      
-
-
-= link_to 'New Order', new_order_path
-
-
-
-/ td = link_to 'Show', order
-/         td = link_to 'Edit', edit_order_path(order)
-/         td = link_to 'Destroy', order, data: {:confirm => 'Are you sure?'}, :method => :delete
+        h2 Delivered Orders (#{@closed_orders.count})
+        -if @closed_orders.count > 0
+          table class='table table-striped table-hover table-responsive'
+            thead
+              tr
+                th ORDER NUM
+                th QTY
+                th CUSTOMER
+                th
+            -@closed_orders.each do |order|
+              tr 
+                td = "#{order.order_number}"
+                td = "#{order.quantity}"
+                td = "#{order.customer.name}"
+                td = button_to "View", order_path(order), method:'get', class:'btn btn-warning btn-sm'
+                
+              
+        br
+        =button_to new_order_path, method:'get', class:'btn btn-primary'
+          i class='fa fa-shopping-cart' &nbsp Create New Order
+        
+    div style='padding-bottom: 100px;'
