@@ -28,6 +28,8 @@
             / Add some jquery here to hide/show open orders instead of building new routes
         br
         p
-          =link_to 'Edit | ', edit_customer_path(@customer)
-          =link_to 'Back', customers_path
+          =button_to 'Edit Customer', edit_customer_path(@customer), method:'get',class:'btn btn-warning'
+          br
+          =button_to 'Back to Customer Index', customers_path, method:'get', class:'btn btn-danger'
+
 

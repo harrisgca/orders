@@ -1,11 +1,26 @@
-h2 = "Customer Order: #{@order.customer.name}"
-h3 = "Order no: #{@order.order_number}"
-h3 = "Status: #{@order.status}"
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        p id= 'notice'
+          =notice
 
-h4 Widgets Assigned To This Order (#{@order.widgets.count})
-- @order.widgets.each do |widget|
-  ul
-    li = widget.serial_number
+        h2 = "Order: #{@order.order_number}"
+        table class='table'
+          tbody
+            tr
+              td <strong>Customer:</strong>
+              td #{@order.customer.name}
+            tr
+              td <strong>Status:</strong>
+              td #{@order.status}
+        h4 = 
+        h4 = 
 
+        h4 Widgets Assigned To This Order (#{@order.widgets.count})
+        - @order.widgets.each do |widget|
+          ul
+            li = widget.serial_number
 
-= link_to 'Back to  Orders', orders_path
+        br
+        =button_to 'Back to Orders', orders_path, method:'get', class:'btn btn-danger'

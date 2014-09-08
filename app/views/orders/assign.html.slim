@@ -1,32 +1,39 @@
-h1 Assign Widgets to Order #{@order.order_number}
-hr
-h3 Order Information
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        p id= 'notice'
+          =notice
 
-table
-  thead
-    tr
-      th ORDER NUM
-      th Qty
-      th Customer
-  tbody
-    tr
-      td =@order.order_number
-      td =@order.quantity
-      td =@order.customer.name
+        h1 Assign Widgets to Order #{@order.order_number}
+        hr
+        h3 Order Information
 
-br
-br
+        table class='table table-striped'
+          thead
+            tr
+              th ORDER NUM
+              th Qty
+              th Customer
+          tbody
+            tr
+              td =@order.order_number
+              td =@order.quantity
+              td =@order.customer.name
 
-h3 Widgets To Be Assigned (#{@order.quantity})
-table
-  thead
-    tr
-      th Serial number
-  tbody
-    -@unassigned_widgets.limit(@order.quantity).each do |widget|
-      tr
-        td=widget.serial_number
+        br
+        br
 
-br
-br
-=button_to 'Assign Widgets', action: 'assign_widgets'
+        h3 Widgets To Be Assigned (#{@order.quantity})
+        table
+          thead
+            tr
+              th Serial number
+          tbody
+            -@unassigned_widgets.limit(@order.quantity).each do |widget|
+              tr
+                td=widget.serial_number
+
+        br
+        br
+        =button_to 'Assign Widgets',assign_widgets_order_path, action:'assign_widgets', class:'btn btn-success'

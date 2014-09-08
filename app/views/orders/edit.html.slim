@@ -1,8 +1,11 @@
-h1 ="Editing: Order # #{@order.id}"
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        h1 ="Editing: Order # #{@order.id}"
 
-== render 'form'
+        == render 'form'
 
-= link_to 'Show', @order
-'|
-= link_to 'Back', orders_path
+        br
+        =button_to 'Cancel', orders_path, method:'get', class:'btn btn-danger'
 
