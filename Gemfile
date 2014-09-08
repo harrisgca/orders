@@ -29,6 +29,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem "font-awesome-rails"
 gem 'autoprefixer-rails'
 gem 'aasm'
+gem 'devise'
 
 group :development do
   gem 'spring'
