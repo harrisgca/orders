@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :widgets
   resources :customers
 
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
       post 'assign_widgets'
     end
   end
+
+  resources :users
+
+
 
   get 'dashboard' => 'dashboard#index'
   # get 'order-status' => 'orders#order_status'

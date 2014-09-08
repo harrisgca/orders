@@ -12,16 +12,17 @@
           </div>
           <!-- Top Menu Items -->
           <ul class="nav navbar-right top-nav">
-  
+            <% if user_signed_in? %>
               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.full_name %> <b class="caret"></b></a>
                   <ul class="dropdown-menu">
 
                       <li>
-                          <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                          <%= link_to("<i class='fa fa-fw fa-power-off'></i>Log Out".html_safe, destroy_user_session_path, method:'delete')%></a>
                       </li>
                   </ul>
               </li>
+            <% end %>
           </ul>
           <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">

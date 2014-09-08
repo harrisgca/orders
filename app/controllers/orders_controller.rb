@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :assign, :assign_widgets]
-
+  before_filter :authenticate_user!, only:[:new, :create, :edit, :update, :destroy, :assign_widgets]
 
   # GET /orders
   def index
