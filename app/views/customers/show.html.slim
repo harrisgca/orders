@@ -1,29 +1,35 @@
-p id= 'notice'
-  =notice
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        p id= 'notice'
+          =notice
 
-h2 = @customer.name
-hr
+        h2 = @customer.name
+        hr
 
-h3 Address
-=@customer.address1
--if @customer.address2
-  br
-  =@customer.address2
-p
-  ="#{@customer.city}, #{@customer.state}, #{@customer.zip}"
-br
-br
-div id='customer-orders'
-  h3 Orders
-  ul
-    li Open Orders (#{@customer.orders.open_orders.count})
-    li Awaiting Shipment #{@customer.orders.awaiting_shipment.count})
-    li Shipped Orders (#{@customer.orders.already_shipped.count})
-    li Delivered Orders (#{@customer.orders.closed_orders.count})
+        h4 Address
+        =@customer.address1
+        -if @customer.address2
+          br
+          =@customer.address2
+        p
+          ="#{@customer.city}, #{@customer.state}, #{@customer.zip}"
+        br
+        br
+        div id='customer-orders'
+          h3 Orders
+          ul
+            li Open Orders (#{@customer.orders.open_orders.count})
+            li Awaiting Shipment #{@customer.orders.awaiting_shipment.count})
+            li Shipped Orders (#{@customer.orders.already_shipped.count})
+            li Delivered Orders (#{@customer.orders.closed_orders.count})
 
-    / Add some jquery here to hide/show open orders instead of building new routes
-br
-p
-  =link_to 'Edit | ', edit_customer_path(@customer)
-  =link_to 'Back', customers_path
+            / Add some jquery here to hide/show open orders instead of building new routes
+        br
+        p
+          =button_to 'Edit Customer', edit_customer_path(@customer), method:'get',class:'btn btn-warning'
+          br
+          =button_to 'Back to Customer Index', customers_path, method:'get', class:'btn btn-danger'
+
 

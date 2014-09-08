@@ -8,10 +8,12 @@ Rails.application.routes.draw do
       post 'assign_widgets'
     end
   end
+
+  get 'dashboard' => 'dashboard#index'
   # get 'order-status' => 'orders#order_status'
 
 
-  root 'orders#index'
+  root 'dashboard#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

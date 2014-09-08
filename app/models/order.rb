@@ -35,6 +35,10 @@ class Order < ActiveRecord::Base
     self.aasm.states.map(&:name)
   end
 
+  def short_order_number
+    self.order_number[0..3] + ".."
+  end
+
   private
     def unique_order_number
       #First 3 letters of customer name + order qty + year + random number

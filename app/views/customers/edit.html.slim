@@ -1,7 +1,13 @@
-h1 ="Editing: #{@customer.name}"
+#page-wrapper
+  .container-fluid
+    .row
+      .col-lg-8
+        h1 class="page-header" Editing: #{@customer.name}
 
-=render 'form'
 
-=link_to "Cancel Edit", @customer
-br
-=link_to "Back to Customer Index", customers_path
+
+        =render 'form'
+
+        p
+          =button_to "Back to Customer Index", customers_path, method: 'get', class: 'btn btn-danger'
+
